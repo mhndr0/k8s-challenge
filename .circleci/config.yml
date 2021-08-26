@@ -8,6 +8,8 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
+      - setup_remote_docker:
+          version: 20.10.7
       - aws-ecr/build-and-push-image:
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ACCESS_KEY_ID
