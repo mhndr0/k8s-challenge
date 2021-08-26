@@ -22,7 +22,7 @@ jobs:
           region: AWS_REGION
           repo: dev-ecr
           skip-when-tags-exist: false
-          tag: 'latest $AWS_ECR_ACCOUNT_URL/web-app:$CIRCLE_SHA1'
+          tag: 'latest,$AWS_ECR_ACCOUNT_URL/web-app:$CIRCLE_SHA1'
       - run:
           name: Install kustomize
           command: |
