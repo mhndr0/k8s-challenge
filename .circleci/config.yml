@@ -36,8 +36,9 @@ jobs:
           cluster-name: dev-eks-mCr8RKHg
           aws-region: $AWS_REGION
       - run:
-          name: Deploy K8S resources
+          name: Deploy K8S resources to dev
           command: |
+            cd dev
             kustomize edit set image $AWS_ECR_ACCOUNT_URL/web-app:$CIRCLE_SHA1
             kustomize build . | kubectl apply -f -
 
