@@ -16,13 +16,13 @@ jobs:
           account-url: AWS_ECR_ACCOUNT_URL
           aws-access-key-id: AWS_ACCESS_KEY_ID
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-          create-repo: false
+          create-repo: true
           no-output-timeout: 10m
           path: ./
           region: AWS_REGION
-          repo: dev-ecr
+          repo: web-app
           skip-when-tags-exist: false
-          tag: 'latest,web-app:$CIRCLE_SHA1'
+          tag: 'latest,$CIRCLE_SHA1'
       - run:
           name: Install kustomize
           command: |
