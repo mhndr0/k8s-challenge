@@ -9,7 +9,7 @@ WORKDIR /app
 
 COPY src/main.go .
 
-RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /src/bin/main src/main.go
+RUN GOOS=linux GOARCH=amd64 go build -ldflags="-w -s" -o /app/bin/main main.go
 
 
 ############################
@@ -22,7 +22,7 @@ RUN mkdir /app
 WORKDIR /app
 
 # Copy the executable
-COPY --from=builder /src/bin/main .
+COPY --from=builder /app/bin/main .
 
 # Run the binary
 CMD ["./main"]
