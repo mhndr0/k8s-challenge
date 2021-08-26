@@ -22,7 +22,7 @@ jobs:
           region: AWS_REGION
           repo: dev-ecr
           skip-when-tags-exist: false
-          tag: 'latest'
+          tag: 'latest $AWS_ECR_ACCOUNT_URL/web-app:$CIRCLE_SHA1'
       - run:
           name: Install kustomize
           command: |
@@ -31,11 +31,11 @@ jobs:
             sudo chmod u+x /usr/local/bin/kustomize
       - aws-eks/update-kubeconfig-with-authenticator:
           cluster-name: dev-eks-mCr8RKHg
-          aws-region: AWS_REGION
+          aws-region: $AWS_REGION
       - run:
           name: Deploy K8S resources
           command: |
-            kustomize edit set image ${IMAGE}:${TAG}
+            kustomize edit set image $AWS_ECR_ACCOUNT_URL/web-app:$CIRCLE_SHA1
             kustomize build . | kubectl apply -f -
 
 workflows:
