@@ -8,5 +8,5 @@ resources:
 - deployment.yaml
 - service.yaml
 - hpa.yaml
-- ingress-contoller.yaml
+- ingress-controller.yaml
 - ingress.yaml
