@@ -2,12 +2,14 @@
 
 ## About
 
-This repo contains Terraform code to deploy a basic K8S cluster on AWS, a golang based web app, a Dockerfile to containerize the application and K8S config files for deployment.
+This repo contains a sample goland web app deployed on kuberentes hosted on AWS.
+
+This repo also contains Terraform code to deploy a basic K8S cluster on AWS, a Dockerfile to containerize the application and K8S config files for deployment.
 
 Usage
 ------------
 
-#### Prerequisite
+#### Install
 
 * Terraform - Version >=0.14
 * AWS account credentials
@@ -17,6 +19,18 @@ Usage
 * kubectl
 
 You can find more information about exporting AWS credentials [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+
+## Starting Server
+
+1. Start the web application by running the following command.
+    ```bash
+    cd src
+    go run main.go
+    ```
+2. Access [http://localhost:8081](http://localhost:8081) in your browser.
+
+
+## Infra Deployment - Teraaform
 ## Requirements
 
 | Name | Version |
@@ -62,7 +76,7 @@ You can find more information about exporting AWS credentials [here](https://doc
 
 No outputs.
 
-## Example Usage:
+## Example Usage
 
 Update the terrform backend bucket configuration in `provider.tf` file.
 Afterwards execute the following commands:
