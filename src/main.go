@@ -17,6 +17,11 @@ func main() {
         fmt.Fprintf(w, "Hi")
     })
 
+    // healthz is a liveness probe.
+    http.HandleFunc("/healthz", func(w http.ResponseWriter, _ *http.Request){
+        w.WriteHeader(http.StatusOK)
+    })
+
     log.Fatal(http.ListenAndServe(":8081", nil))
 
 }
