@@ -4,5 +4,9 @@ namespace: dev
 
 resources:
 - namespace.yaml
+- secret.yaml
 - deployment.yaml
 - service.yaml
+- hpa.yaml
+- ingress-contoller.yaml
+- ingress.yaml
