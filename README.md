@@ -13,6 +13,8 @@ Usage
 * AWS account credentials
   * AWS_ACCESS_KEY_ID
   * AWS_SECRET_ACCESS_KEY
+* Kustomize - Version >=4.3.0
+* kubectl
 
 You can find more information about exporting AWS credentials [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 ## Requirements

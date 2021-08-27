@@ -18,10 +18,12 @@ func main() {
     })
 
     // healthz is a liveness probe.
-    http.HandleFunc("/healthz", func(w http.ResponseWriter, _ *http.Request){
-        w.WriteHeader(http.StatusOK)
-    })
+    http.HandleFunc("/healthz", healthz)
 
     log.Fatal(http.ListenAndServe(":8081", nil))
 
+}
+
+func healthz(w http.ResponseWriter, _ *http.Request) {
+	w.WriteHeader(http.StatusOK)
 }
