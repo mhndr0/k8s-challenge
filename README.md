@@ -1,5 +1,20 @@
 # k8s-challenge
 
+## About
+
+This repo contains Terraform code to deploy a basic K8S cluster on AWS, a golang based web app, a Dockerfile to containerize the application and K8S config files for deployment.
+
+Usage
+------------
+
+#### Prerequisite
+
+* Terraform - Version >=0.14
+* AWS account credentials
+  * AWS_ACCESS_KEY_ID
+  * AWS_SECRET_ACCESS_KEY
+
+You can find more information about exporting AWS credentials [here](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
 ## Requirements
 
 | Name | Version |
@@ -44,3 +59,14 @@
 ## Outputs
 
 No outputs.
+
+## Example Usage:
+
+Update the terrform backend bucket configuration in `provider.tf` file.
+Afterwards execute the following commands:
+
+```
+terraform init
+terraform plan
+terraform apply
+```
