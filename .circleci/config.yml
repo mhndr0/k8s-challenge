@@ -40,6 +40,7 @@ jobs:
           name: Deploy K8S resources to dev
           command: |
             cd dev
+            kubectl apply -f ingress-controller.yaml
             kustomize edit set image $AWS_ECR_ACCOUNT_URL/web-app:$CIRCLE_SHA1
             kustomize build . | kubectl apply -f -
 
